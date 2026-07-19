@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CemonkSwap DApp</title>
+</head>
+<body>
+    <h1>Selamat Datang di CemonkSwap</h1>
+    <button id="connectButton">Hubungkan Dompet (MetaMask)</button>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+        connectButton.addEventListener('click', async () => {
+            if (window.ethereum) {
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Dompet berhasil terhubung!');
+                } catch (error) {
+                    alert('Koneksi dibatalkan.');
+                }
+            } else {
+                alert('Silakan instal MetaMask terlebih dahulu!');
+            }
+        });
+    </script>
+</body>
+</html>
